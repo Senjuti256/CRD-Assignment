@@ -1,0 +1,7 @@
+apiVersion: crdtraining.com/v1
+kind: crdtraining
+metadata:
+  name: crd-assignment
+spec:
+  message: "Trying to create my own custom resource"
+  count: 5
