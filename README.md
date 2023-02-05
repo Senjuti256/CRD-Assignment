@@ -10,8 +10,9 @@ First I wrote the mysrc.yaml file which is the custom resource that I want to ad
 Next I wrote the resourcedefinition.yaml file which the custom resource definition that contains my custom api-version
 
 Next I ran the commands :
-kubectl apply -f resourcedefinition.yaml
-kubectl apply -f mysrc.yaml
+  kubectl apply -f resourcedefinition.yaml
+  
+  kubectl apply -f mysrc.yaml
 
 kubectl get crd
 
