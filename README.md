@@ -36,6 +36,7 @@ Next I tried to write the custom controller and to get an idea of it I executed 
   more controller.go
   
   go build -o sample-controller .
+  
   On doing this:-
   
 go: downloading k8s.io/client-go v0.0.0-20230130210700-b1350830d0e9
@@ -79,18 +80,27 @@ go: downloading github.com/josharian/intern v1.0.0
 
 
 [root@fedora sample-controller]# kubectl create -f artifacts/examples/crd-status-subresource.yaml
+
 customresourcedefinition.apiextensions.k8s.io/foos.samplecontroller.k8s.io created
 
+
 [root@fedora sample-controller]# kubectl create -f artifacts/examples/example-foo.yaml
+
 foo.samplecontroller.k8s.io/example-foo created
+
 
 [root@fedora sample-controller]# kubectl get deployments
 
 NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+
 my-go-app   1/1     1            1           3d14h
+
+
 
 [root@fedora sample-controller]# kubectl get crd
 
 NAME                           CREATED AT
+
 crdtrainings.crdtraining.com   2023-02-05T15:50:28Z
+
 foos.samplecontroller.k8s.io   2023-02-06T06:07:38Z
