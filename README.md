@@ -104,3 +104,38 @@ NAME                           CREATED AT
 crdtrainings.crdtraining.com   2023-02-05T15:50:28Z
 
 foos.samplecontroller.k8s.io   2023-02-06T06:07:38Z
+
+
+
+kubectl apply -f resourcecontroller.yaml
+
+replicationcontroller/my-go-app-rc created
+
+
+kubectl describe replicationcontroller/my-go-app-rc
+
+Name:         my-go-app-rc
+Namespace:    default
+Selector:     app=my-go-app
+Labels:       app=my-go-app
+Annotations:  <none>
+Replicas:     5 current / 5 desired
+Pods Status:  0 Running / 5 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=my-go-app
+  Containers:
+   my-go-app:
+    Image:        my-go-app
+    Port:         80/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Events:
+  Type    Reason            Age   From                    Message
+  ----    ------            ----  ----                    -------
+  Normal  SuccessfulCreate  44s   replication-controller  Created pod: my-go-app-rc-zlzhp
+  Normal  SuccessfulCreate  44s   replication-controller  Created pod: my-go-app-rc-qbw8s
+  Normal  SuccessfulCreate  44s   replication-controller  Created pod: my-go-app-rc-vfxsc
+  Normal  SuccessfulCreate  44s   replication-controller  Created pod: my-go-app-rc-lqr9x
+  Normal  SuccessfulCreate  44s   replication-controller  Created pod: my-go-app-rc-xwz88
