@@ -177,5 +177,9 @@ Events:
   
   
   
+18) [root@fedora Crd_hw]# pods=$(kubectl get pods --selector=app=my-go-app --output=jsonpath={.items..metadata.name})
+echo $pods
   
+my-go-app-9c7757597-jk9gh  my-go-app-rc-lqr9x  my-go-app-rc-qbw8s  my-go-app-rc-vfxsc  my-go-app-rc-xwz88  my-go-app-rc-zlzhp
+
   
