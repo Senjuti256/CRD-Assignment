@@ -1,33 +1,42 @@
 # CRD-Assignment
-sudo su
+1) sudo su
 
-systemctl start docker
 
-minikube start --driver=docker --force
+2) systemctl start docker
 
-First I wrote the mysrc.yaml file which is the custom resource that I want to add to my cluster
+
+3) minikube start --driver=docker --force
+
+
+4) First I wrote the mysrc.yaml file which is the custom resource that I want to add to my cluster
 
 Next I wrote the resourcedefinition.yaml file which the custom resource definition that contains my custom api-version
 
-Next I ran the commands :
+
+5) Next I ran the commands :
   kubectl apply -f resourcedefinition.yaml
   
   kubectl apply -f mysrc.yaml
+  
 
-kubectl get crd
+6) kubectl get crd
 
 NAME                           CREATED AT
 crdtrainings.crdtraining.com   2023-02-05T15:50:28Z
 
-cat mysrc.yaml
+7) cat mysrc.yaml
 
-cat resourcedefinition.yaml
 
-kubectl get crdtraining.crdtraining.com/crd-assignment
+8) cat resourcedefinition.yaml
 
-kubectl describe crdtraining.crdtraining.com/crd-assignment
 
-Next I tried to write the custom controller and to get an idea of it I executed the following commands
+9) kubectl get crdtraining.crdtraining.com/crd-assignment
+
+
+10) kubectl describe crdtraining.crdtraining.com/crd-assignment
+
+
+11) Next I tried to write the custom controller and to get an idea of it I executed the following commands
   git clone https://github.com/kubernetes/sample-controller.git
   cd sample-controller/
   
@@ -79,17 +88,17 @@ go: downloading github.com/josharian/intern v1.0.0
 
 
 
-[root@fedora sample-controller]# kubectl create -f artifacts/examples/crd-status-subresource.yaml
+12) [root@fedora sample-controller]# kubectl create -f artifacts/examples/crd-status-subresource.yaml
 
 customresourcedefinition.apiextensions.k8s.io/foos.samplecontroller.k8s.io created
 
 
-[root@fedora sample-controller]# kubectl create -f artifacts/examples/example-foo.yaml
+13) [root@fedora sample-controller]# kubectl create -f artifacts/examples/example-foo.yaml
 
 foo.samplecontroller.k8s.io/example-foo created
 
 
-[root@fedora sample-controller]# kubectl get deployments
+14) [root@fedora sample-controller]# kubectl get deployments
 
 NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 
@@ -97,7 +106,7 @@ my-go-app   1/1     1            1           3d14h
 
 
 
-[root@fedora sample-controller]# kubectl get crd
+15) [root@fedora sample-controller]# kubectl get crd
 
 NAME                           CREATED AT
 
@@ -107,13 +116,13 @@ foos.samplecontroller.k8s.io   2023-02-06T06:07:38Z
 
 
 
-kubectl apply -f resourcecontroller.yaml
+16) kubectl apply -f resourcecontroller.yaml
 
 replicationcontroller/my-go-app-rc created
 
 
 
-kubectl describe replicationcontroller/my-go-app-rc
+17) kubectl describe replicationcontroller/my-go-app-rc
 
 
 Name:         my-go-app-rc
