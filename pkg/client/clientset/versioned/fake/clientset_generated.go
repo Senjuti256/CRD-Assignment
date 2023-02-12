@@ -28,8 +28,8 @@ import (
 	samplecontrollerv1alpha1 "k8s.io/sample-controller/pkg/generated/clientset/versioned/typed/samplecontroller/v1alpha1"
 	fakesamplecontrollerv1alpha1 "k8s.io/sample-controller/pkg/generated/clientset/versioned/typed/samplecontroller/v1alpha1/fake"*/
     clientset "github.com/Senjuti256/CRD-Assignment/pkg/client/clientset/versioned"
-	scv1 "github.com/Senjuti256/CRD-Assignment/pkg/client/clientset/versioned/typed/crdtraining/v1"
-	fakescv1 "github.com/Senjuti256/CRD-Assignment/pkg/client/clientset/versioned/typed/crdtraining/v1/fake"
+	trainingcrdv1 "github.com/Senjuti256/CRD-Assignment/pkg/client/clientset/versioned/typed/crdtraining/v1"
+	faketrainingcrdv1 "github.com/Senjuti256/CRD-Assignment/pkg/client/clientset/versioned/typed/crdtraining/v1/fake"
 )
 
 // NewSimpleClientset returns a clientset that will respond with the provided objects.
@@ -83,7 +83,6 @@ var (
 )
 
 // SamplecontrollerV1alpha1 retrieves the SamplecontrollerV1alpha1Client
-func (c *Clientset) SamplecontrollerV1alpha1() scv1.SamplecontrollerV1alpha1Interface {
-	return &fakescv1.fakesamplecontrollerv1alpha1{Fake: &c.Fake}
+func (c *Clientset) TrainingcrdV1() trainingcrdv1.TrainingcrdV1Interface {
+	return &faketrainingcrdv1.FakeTrainingcrdV1{Fake: &c.Fake}
 }
-
